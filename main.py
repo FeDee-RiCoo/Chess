@@ -1,7 +1,9 @@
 import turtle
+import game
 
 from board import DrawBoard, WriteLetters, WriteNumbers
 from pieces import DrawPieces
+from game import OnClick, griglia
 
 # Creazione turtle
 t = turtle.Turtle()
@@ -22,8 +24,9 @@ CELL_SIZE = 60
 DrawBoard(CELL_SIZE,t)
 WriteLetters(CELL_SIZE,t)
 WriteNumbers(CELL_SIZE,t)
-DrawPieces(CELL_SIZE,t)
+DrawPieces(CELL_SIZE, t, game.griglia)
 
 turtle.update()
+turtle.onscreenclick(lambda x, y: OnClick(x, y, t))
 turtle.done()
 
